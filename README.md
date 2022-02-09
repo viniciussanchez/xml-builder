@@ -75,7 +75,7 @@ Result:
 ```
 You can also save the file to disk:
 ```pascal
-  TXmlBuilder.New.SaveToFile('C:\sample.xml');
+TXmlBuilder.New.SaveToFile('C:\sample.xml');
 ```
 
 ## ⚠️ License
