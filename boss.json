@@ -1,0 +1,9 @@
+{
+	"name": "xml-builder",
+	"description": "XML builder for Delphi and Lazarus",
+	"version": "1.0.0",
+	"homepage": "",
+	"mainsrc": "./src",
+	"projects": [],
+	"dependencies": {}
+}

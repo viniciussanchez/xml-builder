@@ -1,0 +1,34 @@
+object FrmSamples: TFrmSamples
+  Left = 350
+  Height = 460
+  Top = 31
+  Width = 704
+  Caption = 'FrmSamples'
+  ClientHeight = 460
+  ClientWidth = 704
+  object mmXml: TMemo
+    Left = 24
+    Height = 377
+    Top = 56
+    Width = 649
+    TabOrder = 0
+  end
+  object btnExample2: TButton
+    Left = 105
+    Height = 25
+    Top = 16
+    Width = 75
+    Caption = 'Example 2'
+    OnClick = btnExample2Click
+    TabOrder = 1
+  end
+  object btnExample1: TButton
+    Left = 24
+    Height = 25
+    Top = 16
+    Width = 75
+    Caption = 'Example 1'
+    OnClick = btnExample1Click
+    TabOrder = 2
+  end
+end
