@@ -78,6 +78,31 @@ You can also save the file to disk:
 TXmlBuilder.New.SaveToFile('C:\sample.xml');
 ```
 
+## ⚡️ DataSet Adapter
+
+```pascal
+uses Xml.Builder;
+
+begin
+  mtDeveloper.Append;
+  mtDeveloperfirstName.AsString := 'Vinicius';
+  mtDeveloperlastName.AsString := 'Sanchez';
+  mtDevelopermvp.AsBoolean := True;
+  mtDeveloper.Post;
+  
+  mmXml.Lines.Text := TXmlBuilder.Adapter(mtDeveloper).Xml;
+end;
+``` 
+Result:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<mtDeveloper>
+   <firstName>Vinicius</firstName>
+   <lastName>Sanchez</lastName>
+   <mvp>True</mvp>
+</mtDeveloper>
+```
+
 ## ⚠️ License
 
 `XML Builder` is free and open-source software licensed under the [MIT License](https://github.com/viniciussanchez/xml-builder/blob/master/LICENSE). 
