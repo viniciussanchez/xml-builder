@@ -4,15 +4,21 @@ unit Xml.Builder.Samples.Lazarus;
 
 interface
 
-uses Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+uses Classes, SysUtils, memds, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 type
+
+  { TFrmSamples }
+
   TFrmSamples = class(TForm)
     btnExample1: TButton;
     btnExample2: TButton;
+    btnExample3: TButton;
+    mtDeveloper: TMemDataset;
     mmXml: TMemo;
     procedure btnExample1Click(Sender: TObject);
     procedure btnExample2Click(Sender: TObject);
+    procedure btnExample3Click(Sender: TObject);
   end;
 
 var
@@ -62,6 +68,20 @@ begin
   mmXml.Lines.Text := TXmlBuilder.New
     .AddNode(LDeveloperNode)
     .Xml;
+end;
+
+procedure TFrmSamples.btnExample3Click(Sender: TObject);
+begin
+  if not mtDeveloper.Active then
+  begin
+    mtDeveloper.Active := True;
+    mtDeveloper.Insert;
+    mtDeveloper.FieldByName('firstName').AsString := 'Vinicius';
+    mtDeveloper.FieldByName('lastName').AsString := 'Sanchez';
+    mtDeveloper.FieldByName('mvp').AsBoolean := True;
+    mtDeveloper.Post;
+  end;
+  mmXml.Lines.Text := TXmlBuilder.Adapter(mtDeveloper).Xml;
 end;
 
 end.

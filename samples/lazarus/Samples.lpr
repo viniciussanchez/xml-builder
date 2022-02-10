@@ -10,7 +10,7 @@ uses
   athreads,
   {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, Xml.Builder.Samples.Lazarus
+  Forms, memdslaz, Xml.Builder.Samples.Lazarus
   { you can add units after this };
 
 {$R *.res}

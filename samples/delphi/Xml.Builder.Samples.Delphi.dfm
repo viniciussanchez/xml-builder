@@ -48,5 +48,36 @@ object FrmSamples: TFrmSamples
       TabOrder = 2
       OnClick = btnExample2Click
     end
+    object btnExample3: TButton
+      Left = 186
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'Example 3'
+      TabOrder = 3
+      OnClick = btnExample3Click
+    end
+  end
+  object mtDeveloper: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 272
+    Top = 248
+    object mtDeveloperfirstName: TStringField
+      FieldName = 'firstName'
+      Size = 100
+    end
+    object mtDeveloperlastName: TStringField
+      FieldName = 'lastName'
+      Size = 100
+    end
+    object mtDevelopermvp: TBooleanField
+      FieldName = 'mvp'
+    end
   end
 end

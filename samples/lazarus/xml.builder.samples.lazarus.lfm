@@ -31,4 +31,32 @@ object FrmSamples: TFrmSamples
     OnClick = btnExample1Click
     TabOrder = 2
   end
+  object btnExample3: TButton
+    Left = 186
+    Height = 25
+    Top = 16
+    Width = 75
+    Caption = 'Example 3'
+    OnClick = btnExample3Click
+    TabOrder = 3
+  end
+  object mtDeveloper: TMemDataset
+    FieldDefs = <    
+      item
+        Name = 'firstName'
+        DataType = ftString
+        Size = 100
+      end    
+      item
+        Name = 'lastName'
+        DataType = ftString
+        Size = 100
+      end    
+      item
+        Name = 'mvp'
+        DataType = ftBoolean
+      end>
+    Left = 344
+    Top = 286
+  end
 end

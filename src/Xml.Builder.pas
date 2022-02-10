@@ -7,6 +7,11 @@ unit Xml.Builder;
 interface
 
 uses
+{$IF DEFINED(FPC)}
+  DB,
+{$ELSE}
+  Data.DB,
+{$ENDIF}
   Xml.Builder.Intf,
   Xml.Builder.Node.Intf,
   Xml.Builder.Node;
@@ -29,6 +34,7 @@ type
     constructor Create;
   public
     class function New: IXmlBuilder;
+    class function Adapter(const ADataSet: TDataSet): IXmlBuilder;
   end;
 
 implementation
@@ -45,6 +51,18 @@ uses
   System.StrUtils,
   System.Classes;
 {$ENDIF}
+
+class function TXmlBuilder.Adapter(const ADataSet: TDataSet): IXmlBuilder;
+var
+  I: Integer;
+  LMainNode: IXmlNode;
+begin
+  LMainNode := TXmlNode.New(ADataSet.Name);
+  for I := 0 to Pred(ADataSet.FieldCount) do
+    LMainNode.AddElement(ADataSet.Fields[I].FieldName, ADataSet.Fields[I].AsString);
+  Result := TXmlBuilder.Create;
+  Result.AddNode(LMainNode);
+end;
 
 function TXmlBuilder.AddNode(const ANode: IXmlNode): IXMlBuilder;
 begin
